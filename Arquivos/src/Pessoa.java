@@ -7,11 +7,22 @@ import java.util.List;
 
 public class Pessoa implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private long id;
 	private String nome;
 	private String telefone;
 	private String email;
 	private LocalDate nascimento;
+	
+	private String apelido;
+	
+	public String getApelido() {
+		return apelido;
+	}
+	public void setApelido(String apelido) {
+		this.apelido = apelido;
+	}
 	public long getId() {
 		return id;
 	}
@@ -72,6 +83,11 @@ public class Pessoa implements Serializable {
 			e.printStackTrace();
 		}
 		
+	}
+	@Override
+	public String toString() {
+		return "Pessoa [id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", nascimento="
+				+ nascimento + "]";
 	}
 	
 }
