@@ -12,7 +12,7 @@ public class ConversaoArquivoLista {
 	public static void main(String[] args) {
 		
 		ProdutoBO neg = new ProdutoBO();
-		String arq = "/Users/eduardogondo/Downloads/precos.csv";
+		String arq = "d:/precos.csv";
 		try {
 			List<Registro> lista = neg.leArquivoPrecos(arq);
 //			for(Registro reg : lista) {

@@ -2,8 +2,10 @@ package br.com.fiap.negocio;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -15,10 +17,18 @@ import br.com.fiap.model.Registro;
 public class ProdutoBO {
 	
 	
+	public void gravaListaRegistros(List<Registro> registros) throws Exception {
+		FileOutputStream fos = new FileOutputStream("d:/registros.dat");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(registros);
+		oos.close();
+	}
+
+	
 	public void gravaProduto(Produto p) throws Exception {
 		
 		//FileOutputStream fos = new FileOutputStream("c:/arquivos/produto.dat");
-		FileOutputStream fos = new FileOutputStream("/Users/eduardogondo/produto.dat");
+		FileOutputStream fos = new FileOutputStream("d:/produto.dat");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(p);
 		fos.close();
@@ -26,7 +36,7 @@ public class ProdutoBO {
 	}
 
 	public Produto leProduto() throws Exception {
-		FileInputStream fis = new FileInputStream("/Users/eduardogondo/produto.dat");
+		FileInputStream fis = new FileInputStream("d:/produto.dat");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Produto p = (Produto)ois.readObject();
 		fis.close();
