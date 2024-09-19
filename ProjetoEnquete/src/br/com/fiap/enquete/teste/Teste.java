@@ -19,6 +19,17 @@ public class Teste {
 		
 		EnqueteDao banco = new EnqueteDao();
 		try {
+			
+			Enquete prefeitura = new Enquete();
+			prefeitura.setCriador("IBOPE");
+			prefeitura.setDescricao("Eleição de prefeito de São Paulo");
+			prefeitura.setNome("Pesquisa Eleitoral");
+			prefeitura.setDataCriacao(LocalDate.now());
+			
+			banco.insere(prefeitura);
+			
+			System.out.println("ID: " + prefeitura.getId());
+			
 			banco.altera(alt);
 			List<Enquete> lista = banco.recupera();
 			for(Enquete enq : lista) {
