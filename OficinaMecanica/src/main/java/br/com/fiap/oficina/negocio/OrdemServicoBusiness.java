@@ -6,6 +6,7 @@ import br.com.fiap.oficina.dto.VeiculoDTO;
 import br.com.fiap.oficina.model.OrdemServico;
 import br.com.fiap.oficina.model.Veiculo;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -54,10 +55,11 @@ public class OrdemServicoBusiness {
         }
 
 
-
-        /*Gson gson = new Gson();
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(LocalDate.class, new LocalDateSerializer());
+        Gson gson = builder.create();
         String json = gson.toJson(veiculo);
-        System.out.println(json);*/
+        System.out.println(json);
 
     }
 }
