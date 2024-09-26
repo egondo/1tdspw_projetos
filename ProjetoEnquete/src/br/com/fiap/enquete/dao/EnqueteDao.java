@@ -96,15 +96,6 @@ public class EnqueteDao {
 			throw e;
 		}
 	}
-
-
-
-
-
-
-
-
-
 }
 
 

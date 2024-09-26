@@ -2,10 +2,13 @@ package br.com.fiap.oficina.negocio;
 
 import br.com.fiap.oficina.dao.OrdemServicoDao;
 import br.com.fiap.oficina.dao.VeiculoDao;
+import br.com.fiap.oficina.dto.VeiculoDTO;
 import br.com.fiap.oficina.model.OrdemServico;
 import br.com.fiap.oficina.model.Veiculo;
+import com.google.gson.Gson;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class OrdemServicoBusiness {
 
@@ -21,8 +24,14 @@ public class OrdemServicoBusiness {
         odao.insere(os);
     }
 
+    public VeiculoDTO recuperaVeiculoComOrdensServico(long id) throws Exception {
+        VeiculoDao vdao = new VeiculoDao();
+        return vdao.recuperaVeiculoDTO(id);
+    }
+
+
     public static void main(String[] args) throws Exception {
-        OrdemServicoBusiness neg = new OrdemServicoBusiness();
+       /* OrdemServicoBusiness neg = new OrdemServicoBusiness();
         Veiculo v = new Veiculo();
         v.setPlaca("ABC-8749");
         v.setAno(2020);
@@ -34,6 +43,21 @@ public class OrdemServicoBusiness {
         os.setMecanico("Joaquim");
         os.setData(LocalDate.now());
         os.setVeiculo(v);
-        neg.cadastra(os);
+        neg.cadastra(os);*/
+
+        VeiculoDao vdao = new VeiculoDao();
+        VeiculoDTO veiculo = vdao.recuperaVeiculoDTO(2);
+        System.out.println(veiculo.getPlaca() + " - " + veiculo.getModelo());
+        for(OrdemServico os : veiculo.getOrdensServico()) {
+            System.out.println(os.getData() + " " + os.getDescricao() + " " +
+                                    os.getMecanico() + " " + os.getValor());
+        }
+
+
+
+        /*Gson gson = new Gson();
+        String json = gson.toJson(veiculo);
+        System.out.println(json);*/
+
     }
 }
