@@ -16,6 +16,6 @@ create table t_partida(
     gols_casa number,
     gols_visitante number,
     primary key(id),
-    foreign key (id_timecasa) references time(id),
-    foreign key (id_timevisitante) references time(id)
+    foreign key (id_timecasa) references t_time(id),
+    foreign key (id_timevisitante) references t_time(id)
 );
