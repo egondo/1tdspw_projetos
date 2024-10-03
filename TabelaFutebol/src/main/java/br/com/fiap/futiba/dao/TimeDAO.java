@@ -49,7 +49,7 @@ public class TimeDAO {
 
             ResultSet rs = pstmt.getGeneratedKeys();
             if (rs.next()) {
-                time.setId(rs.getBigDecimal("id").longValue());
+                time.setId(rs.getBigDecimal(1).longValue());
             }
         }
         catch (Exception e) {

@@ -15,13 +15,15 @@ public class CampeonatoBusiness {
         Time casa = dao.recuperaPorNome(nomeCasa);
         if (casa == null) {
             dao.insere(jogo.getCasa());
+            casa = jogo.getCasa();
         }
         jogo.setCasa(casa);
 
         String nomeVisitante = jogo.getVisitante().getNome();
         Time visi = dao.recuperaPorNome(nomeVisitante);
         if (visi == null) {
-            dao.insere(visi);
+            dao.insere(jogo.getVisitante());
+            visi = jogo.getVisitante();
         }
         jogo.setVisitante(visi);
 
