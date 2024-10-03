@@ -10,6 +10,29 @@ public class Time {
     private int vitorias;
     private int empates;
 
+    public void addJogo() {
+        this.jogos++;
+    }
+
+    public void addVitoria() {
+        this.vitorias++;
+    }
+
+    public void addEmpate() {
+        this.empates++;
+    }
+
+    public void addGolsPro(int gols) {
+        this.golsPro = this.golsPro + gols;
+    }
+
+    public void addGolsContra(int gols) {
+        this.golsContra = this.getGolsContra() + gols;
+    }
+
+
+
+
     public int getSaldoGols() {
         return golsPro - golsContra;
     }
