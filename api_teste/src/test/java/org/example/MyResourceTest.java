@@ -1,4 +1,4 @@
-package br.com.fiap;
+package org.example;
 
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;

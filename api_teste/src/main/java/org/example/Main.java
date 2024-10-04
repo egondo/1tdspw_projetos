@@ -1,4 +1,4 @@
-package br.com.fiap;
+package org.example;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -21,8 +21,8 @@ public class Main {
      */
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
-        // in br.com.fiap package
-        final ResourceConfig rc = new ResourceConfig().packages("br.com.fiap");
+        // in org.example package
+        final ResourceConfig rc = new ResourceConfig().packages("org.example");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
