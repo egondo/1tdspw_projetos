@@ -6,7 +6,10 @@ import br.com.fiap.futiba.model.Time;
 import br.com.fiap.model.Carta;
 import br.com.fiap.model.PartidaTO;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
 
 import java.net.URI;
 import java.util.List;
@@ -46,7 +49,7 @@ public class MyResource {
         System.out.println("Carta " + c.getValor() + c.getNaipe());
         URI uri = uriInfo.getAbsolutePath();
         System.out.println(uri.toString());
-        return Response.created(uri).build();
+        return Response.status(201).entity(uri.toString()).build();
     }
 
     @GET
@@ -81,7 +84,7 @@ public class MyResource {
 
         try {
             cb.gravaPartida(p);
-            return Response.ok().build();
+            return Response.ok(p).build();
 
         } catch (Exception e) {
             return Response.status(404).build();
