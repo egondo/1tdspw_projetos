@@ -5,9 +5,38 @@ import br.com.fiap.model.Tarefa;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TarefaDao {
+
+    public List<Tarefa> recupera() throws Exception {
+        String sql = "select id, titulo, descricao, prioridade, status, inicio, fim from tarefa";
+        try(Connection con = new Conexao().getConexao();
+            PreparedStatement pstmt = con.prepareStatement(sql);) {
+            ResultSet rs = pstmt.executeQuery();
+            List<Tarefa> retorno = new ArrayList<>();
+            while (rs.next()) {
+                Tarefa t = new Tarefa();
+                t.setId(rs.getLong(1));
+                t.setTitulo(rs.getString(2));
+                t.setDescricao(rs.getString(3));
+                t.setPrioridade(rs.getInt(4));
+                t.setStatus(rs.getString(5));
+                t.setInicio(rs.getDate(6).toLocalDate());
+                t.setFim(rs.getDate(7).toLocalDate());
+                retorno.add(t);
+            }
+            return retorno;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
 
     public void insere(Tarefa t) throws Exception {
 
