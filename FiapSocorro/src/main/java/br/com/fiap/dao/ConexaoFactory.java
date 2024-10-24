@@ -7,9 +7,10 @@ public class ConexaoFactory {
 
     public Connection getConexao() throws Exception {
         //Class.forName("");
-        String s = System.getenv("USER_ORACLE");
+        //String s = System.getenv("USER_ORACLE");
         String url = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl";
-        return DriverManager.getConnection(url, s,
+        //Class.forName("oracle.jdbc.driver.OracleDriver");
+        return DriverManager.getConnection(url, "pf0313",
                                         "professor#23");
     }
 

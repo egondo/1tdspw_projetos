@@ -19,6 +19,17 @@ public class Triagem {
         return dataHora;
     }
 
+    public boolean isCompleta() {
+        if (temperatura == 0 || pressao == 0 || batimentos == 0)
+            return false;
+        if (enfermeira == null || doente == null)
+            return false;
+        if (motivo == null || motivo.trim().isEmpty())
+            return false;
+        return true;
+    }
+
+
     public void setDataHora(LocalDateTime dataHora) {
         this.dataHora = dataHora;
     }
