@@ -9,6 +9,7 @@ import br.com.fiap.model.Triagem;
 import br.com.fiap.util.Prontuario;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class BusinessPS {
@@ -27,6 +28,7 @@ public class BusinessPS {
     public void cadastraTriagem(Triagem tri) throws Exception {
         TriagemDAO dao = new TriagemDAO();
         if (tri.isCompleta()) {
+            tri.setDataHora(LocalDateTime.now());
             dao.insert(tri);
         }
         else {
@@ -36,6 +38,7 @@ public class BusinessPS {
 
     public void cadastraAtendimento(Atendimento ate) throws Exception {
         AtendimentoDAO dao = new AtendimentoDAO();
+        ate.setDataHora(LocalDateTime.now());
         dao.insert(ate);
     }
 
@@ -55,10 +58,10 @@ public class BusinessPS {
 
     public static void main(String[] args) throws Exception {
         Paciente doente = new Paciente();
-        doente.setNome("John Doe");
-        doente.setDocumento("XXXX");
-        doente.setTelefone("(11) 9999-9999");
-        doente.setNascimento(LocalDate.of(2000, 10, 5));
+        doente.setNome("Jane Doe");
+        doente.setDocumento("11111");
+        doente.setTelefone("(21) 9858-3999");
+        doente.setNascimento(LocalDate.of(2010, 1, 15));
 
         BusinessPS ps = new BusinessPS();
         ps.cadastraPaciente(doente);
