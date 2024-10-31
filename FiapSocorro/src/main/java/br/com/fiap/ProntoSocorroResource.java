@@ -4,13 +4,16 @@ import br.com.fiap.model.Atendimento;
 import br.com.fiap.model.Paciente;
 import br.com.fiap.model.Triagem;
 import br.com.fiap.negocio.BusinessPS;
-import br.com.fiap.util.PacienteTO;
-import br.com.fiap.util.TriagemTO;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
+import br.com.fiap.util.*;
+import com.google.gson.*;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.lang.reflect.Type;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Path("ps")
 public class ProntoSocorroResource {
@@ -47,10 +50,10 @@ public class ProntoSocorroResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("atendimento")
-    public Response cadastraAtendimento(Atendimento ate) {
+    public Response cadastraAtendimento(AtendimentoTO ate) {
         BusinessPS neg = new BusinessPS();
         try {
-            neg.cadastraAtendimento(ate);
+            neg.cadastraAtendimento(ate.toAtendimento());
             return Response.status(201).entity(ate).build();
         }
         catch(Exception e) {
@@ -59,5 +62,23 @@ public class ProntoSocorroResource {
         }
     }
 
+    @GET
+    @Path("prontuario/paciente/{id}")
+    public Response recuperaProntuario(@PathParam("id") long id) {
+        BusinessPS neg = new BusinessPS();
+        try {
+            Paciente p = new Paciente();
+            p.setId(id);
+            Prontuario pront = neg.recuperaTratamento(p);
 
+            ProntuarioTO prontuario = pront.toProntuarioTO();
+
+            //Gson gson = new Gson();
+            return Response.ok(prontuario).build();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(406).entity(e.getMessage()).build();
+        }
+    }
 }

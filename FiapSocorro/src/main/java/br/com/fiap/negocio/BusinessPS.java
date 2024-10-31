@@ -45,9 +45,13 @@ public class BusinessPS {
     public Prontuario recuperaTratamento(Paciente pac) throws Exception {
         TriagemDAO tdao = new TriagemDAO();
         AtendimentoDAO adao = new AtendimentoDAO();
+        PacienteDAO pdao = new PacienteDAO();
 
         List<Triagem> listaTriagem = tdao.recuperaPorPaciente(pac.getId());
         List<Atendimento> listaAtendimento = adao.recuperaPorPaciente(pac.getId());
+
+        pac = pdao.recuperaPorId(pac.getId());
+
         Prontuario pront = new Prontuario();
         pront.setPaciente(pac);
         pront.setAtendimentos(listaAtendimento);

@@ -44,4 +44,27 @@ public class Prontuario {
     public void setAtendimentos(List<Atendimento> atendimentos) {
         this.atendimentos = atendimentos;
     }
+
+    public ProntuarioTO toProntuarioTO() {
+        ProntuarioTO pront = new ProntuarioTO();
+        PacienteTO pac = new PacienteTO();
+        pac.setNome(paciente.getNome());
+        pac.setDocumento(paciente.getDocumento());
+        pac.setTelefone(paciente.getTelefone());
+        pac.setNascimento(paciente.getNascimento().toString());
+        pront.setPaciente(pac);
+
+        List<AtendimentoDTO> listaAte = new ArrayList<>();
+        for (Atendimento a : this.atendimentos) {
+            AtendimentoDTO ate = new AtendimentoDTO();
+            ate.setFuncionario(a.getFuncionario());
+            ate.setDescricao(a.getDescricao());
+            ate.setTipo(a.getTipo());
+            ate.setDataHora(a.getDataHora().toString());
+
+            listaAte.add(ate);
+        }
+        pront.setAtendimentos(listaAte);
+        return pront;
+    }
 }

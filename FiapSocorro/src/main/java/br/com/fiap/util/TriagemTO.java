@@ -4,6 +4,8 @@ import br.com.fiap.model.Funcionario;
 import br.com.fiap.model.Paciente;
 import br.com.fiap.model.Triagem;
 
+import java.time.LocalDateTime;
+
 public class TriagemTO {
 
     private long id;
@@ -22,6 +24,8 @@ public class TriagemTO {
         t.setMotivo(motivo);
         t.setGravidade(gravidade);
         t.setTemperatura(temperatura);
+
+        t.setDataHora(LocalDateTime.now());
 
         Paciente doente = new Paciente();
         doente.setId(idDoente);
