@@ -52,10 +52,23 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Object[] objetos = new Object[30];
         for (int i = 0; i < 30; i++) {
-            if (Math.random() < 0.5)
-                objetos[i] = criaPessoa();
-            else
-                objetos[i] = criaProduto();
+            objetos[i] = geraObjeto();
         }
+        //"insert into pessoa(nome, idade, genero) values('Beto', 25, 'masculino')"
+        Pessoa p = new Pessoa();
+        p.setNascimento(LocalDate.now());
+        p.setCpf("2834393");
+        p.setIdade(26);
+        p.setGenero("feminino");
+        p.setNome("Ricardo");
+
+        Class c = p.getClass();
+        Method met = c.getDeclaredMethod("getNome");
+        Object nome = met.invoke(p);
+        System.out.println("Chamdando o método getNome() -> " + nome);
+
+        met = c.getDeclaredMethod("getNascimento");
+        Object valor = met.invoke(p);
+        System.out.println("Chamdando o método getNascimento() -> " + valor);
     }
 }
