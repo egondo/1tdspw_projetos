@@ -3,13 +3,9 @@ import java.time.LocalDate;
 public class Pessoa {
 
     private String nome;
-
     private LocalDate nascimento;
-
     private String cpf;
-
     private int idade;
-
     private String genero;
 
     public String getNome() {

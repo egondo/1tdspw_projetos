@@ -1,13 +1,9 @@
 public class Produto {
 
     private String descricao;
-
     private String codigo;
-
     private int quantidade;
-
     private String localizacao;
-
     private double valor;
 
     public String getDescricao() {
