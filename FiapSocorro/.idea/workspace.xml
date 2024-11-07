@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5da80e9c-cec2-49cb-98cb-a01eefe65ad8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/AtendimentoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/AtendimentoTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/ProntuarioTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/TriagemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/ProntoSocorroResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/ProntoSocorroResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/dao/ConexaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/dao/ConexaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/dao/PacienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/dao/PacienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/negocio/BusinessPS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/negocio/BusinessPS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/Prontuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/Prontuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/TriagemTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/util/TriagemTO.java" afterDir="false" />
-    </list>
+    <list default="true" id="5da80e9c-cec2-49cb-98cb-a01eefe65ad8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
