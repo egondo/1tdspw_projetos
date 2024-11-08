@@ -14,9 +14,12 @@ public class GeradorTabela {
         sb.append("(");
         Field[] campos = c.getDeclaredFields();
         for(Field f : campos) {
-            sb.append(f.getName().toLowerCase());
-            sb.append(getTipo(f.getType()));
-            sb.append(",");
+
+            if (!f.isAnnotationPresent(Transiente.class)) {
+                sb.append(f.getName().toLowerCase());
+                sb.append(getTipo(f.getType()));
+                sb.append(",");
+            }
         }
         sb = sb.delete(sb.length() - 1, sb.length());
         sb.append(");");

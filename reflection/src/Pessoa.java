@@ -5,7 +5,10 @@ public class Pessoa {
     private String nome;
     private LocalDate nascimento;
     private String cpf;
+
+    @Transiente
     private int idade;
+
     private String genero;
 
     public String getNome() {
@@ -32,6 +35,7 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
+    @Transiente
     public int getIdade() {
         return idade;
     }
